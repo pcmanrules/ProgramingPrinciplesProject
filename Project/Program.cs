@@ -5,24 +5,24 @@ namespace Project
 {
     class Program
     {
-        protected static List<Ticket> AllTickets = new List<Ticket>();
+        protected static List<Ticket> AllTickets = new List<Ticket>(); //Create list for all tickets
         static protected void Main()
         {
-            bool InternalGenerate = false;
-            ConsoleKeyInfo Option;
+            bool InternalGenerate = false; //Generator checks
+            ConsoleKeyInfo Option; //Object for menu key use
             do
             {
-                Menu.ShowMain();
-                Option = Console.ReadKey(false);
-                switch (Option.KeyChar.ToString())
+                Menu.ShowMain(); //Write Menu
+                Option = Console.ReadKey(false); //Wait and read user key press
+                switch (Option.KeyChar.ToString()) //Menu Options
                 {
-                    case "1":   //Internal Ticket Generate 
+                    case "1": //Internal Ticket Generate 
                         Console.Clear();
-                        if (InternalGenerate == false)
+                        if (InternalGenerate == false) //Check if run before
                         {
                             Generate.InternalTicket(AllTickets);
                             Console.WriteLine("Sussess: Sample internal tickets generated for this session");
-                            InternalGenerate = true;
+                            InternalGenerate = true; //Prevent further running
                         }
                         else
                         {
@@ -31,7 +31,7 @@ namespace Project
                         Console.Write("Press any key to continue . . .");
                         Console.ReadKey();
                         break;
-                    case "2":   //List all tickets
+                    case "0":   //List all tickets
                         Console.Clear();
                         AllTickets.ForEach(p => p.StringOutput(p));
                         Console.Write("Press any key to continue . . .");

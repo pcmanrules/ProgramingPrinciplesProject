@@ -20,8 +20,8 @@ namespace Project
                 "Staff ID: " + Ticket.StaffID + "\n" +
                 "Email Address: " + Ticket.Email + "\n" +
                 "Description: " + Ticket.Description + "\n" +
-                "Response: " + Ticket.Response + "\n" +
-                "Ticket Status: " + Ticket.Status;
+                "Response: " + (Ticket.Response ?? "Not Yet Provided") + "\n" +
+                "Ticket Status: " + Ticket.Status + "\n";
             Console.WriteLine(Converted);
         }
     }
@@ -35,6 +35,17 @@ namespace Project
             this.Creator = Creator;
             this.StaffID = StaffID;
             this.Email = Email;
+            this.Description = Description;
+            this.Status = "Open";
+        }
+        public InternalTicket(string StaffID, string Description)
+        {
+            int IDInt = CounterPlus();
+            int v = IDInt + 2000;
+            this.ID = v.ToString();
+            this.Creator = "Not Specified";
+            this.StaffID = StaffID;
+            this.Email = "Not Specified";
             this.Description = Description;
             this.Status = "Open";
         }
