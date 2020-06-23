@@ -5,10 +5,10 @@ namespace Project
 {
     class Program
     {
-        static void Main()
+        protected static List<Ticket> AllTickets = new List<Ticket>();
+        static protected void Main()
         {
             bool InternalGenerate = false;
-            List<Ticket> TicketList = new List<Ticket>();
             ConsoleKeyInfo Option;
             do
             {
@@ -20,7 +20,7 @@ namespace Project
                         Console.Clear();
                         if (InternalGenerate == false)
                         {
-                            Generate.InternalTicket();
+                            Generate.InternalTicket(AllTickets);
                             Console.WriteLine("Sussess: Sample internal tickets generated for this session");
                             InternalGenerate = true;
                         }
@@ -31,9 +31,9 @@ namespace Project
                         Console.Write("Press any key to continue . . .");
                         Console.ReadKey();
                         break;
-                    case "2":   //Password Generator
+                    case "2":   //List all tickets
                         Console.Clear();
-                        PwdGen();
+                        AllTickets.ForEach(p => p.StringOutput(p));
                         Console.Write("Press any key to continue . . .");
                         Console.ReadKey();
                         break;
@@ -41,10 +41,6 @@ namespace Project
             } while (Option.Key != ConsoleKey.Escape);
             Console.WriteLine("\nPress any key to continue . . .");
             Console.ReadKey();
-        }
-        static void PwdGen()
-        {
-            Console.WriteLine("Comming soon!");
         }
     }
 }

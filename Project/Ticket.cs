@@ -1,26 +1,27 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Project
 {
     public abstract class Ticket
     {
         private static int IDCounter = 0;
-        protected string CounterPlus()
+        protected int CounterPlus()
         {
             IDCounter++;
-            return IDCounter.ToString();
+            return IDCounter;
         }
         protected string ID, Creator, StaffID, Email, Description, Response, Status;
-        public void StringOutput()
+        public void StringOutput(Ticket Ticket)
         {
             string Converted =
-                "Ticket Number: " + ID + "\n" +
-                "Ticket Creator: " + Creator + "\n" +
-                "Staff ID: " + StaffID + "\n" +
-                "Email Address: " + Email + "\n" +
-                "Description: " + Description + "\n" +
-                "Response: " + Response + "\n" +
-                "Ticket Status: " + Status;
+                "Ticket Number: " + Ticket.ID + "\n" +
+                "Ticket Creator: " + Ticket.Creator + "\n" +
+                "Staff ID: " + Ticket.StaffID + "\n" +
+                "Email Address: " + Ticket.Email + "\n" +
+                "Description: " + Ticket.Description + "\n" +
+                "Response: " + Ticket.Response + "\n" +
+                "Ticket Status: " + Ticket.Status;
             Console.WriteLine(Converted);
         }
     }
@@ -28,7 +29,9 @@ namespace Project
     {
         public InternalTicket(string Creator, string StaffID, string Email, string Description)
         {
-            this.ID = CounterPlus();
+            int IDInt = CounterPlus();
+            int v = IDInt + 2000;
+            this.ID = v.ToString();
             this.Creator = Creator;
             this.StaffID = StaffID;
             this.Email = Email;
