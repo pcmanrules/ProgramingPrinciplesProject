@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace Project
 {
@@ -48,6 +47,18 @@ namespace Project
             this.Email = "Not Specified";
             this.Description = Description;
             this.Status = "Open";
+        }
+        public InternalTicket(string Creator, string StaffID, string Email, string Description, string Response, string Status)
+        {
+            int IDInt = CounterPlus();
+            int v = IDInt + 2000;
+            this.ID = v.ToString();
+            this.Creator = Creator;
+            this.StaffID = StaffID;
+            this.Email = Email;
+            this.Description = Description;
+            this.Response = Response;
+            this.Status = Status;
         }
     }
 }
