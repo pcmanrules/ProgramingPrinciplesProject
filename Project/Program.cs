@@ -10,6 +10,7 @@ namespace Project
         {
             bool InternalGenerate = false; //Generator checks
             ConsoleKeyInfo Option; //Object for menu key use
+            ConsoleKeyInfo OptionSecret;
             do
             {
                 Menu.ShowMain(); //Write Menu
@@ -33,10 +34,27 @@ namespace Project
                         break;
                     case "0":   //List all tickets
                         Console.Clear();
-                        AllTickets.ForEach(p => p.StringOutput(p));
+                        AllTickets.ForEach(p => Output.StringOutput(p));
                         Console.Write("Press any key to continue . . .");
                         Console.ReadKey();
                         break;
+                    case "l":   //Secret debug menu
+                        {
+                            do
+                            {
+                                Console.Clear();
+                                Menu.ShowSecret();
+                                OptionSecret = Console.ReadKey(false);
+                                switch (OptionSecret.KeyChar.ToString())
+                                {
+                                    case "o":
+                                        {
+                                            break;
+                                        }
+                                };
+                            } while (OptionSecret.Key != ConsoleKey.Escape);
+                            break;
+                        }
                 };
             } while (Option.Key != ConsoleKey.Escape);
             Console.WriteLine("\nPress any key to continue . . .");
