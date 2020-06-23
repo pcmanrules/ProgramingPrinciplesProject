@@ -8,19 +8,11 @@ namespace Project
         static void Main()
         {
             bool InternalGenerate = false;
-            List<object> TicketList = new List<object>();
+            List<Ticket> TicketList = new List<Ticket>();
             ConsoleKeyInfo Option;
             do
             {
-                Console.Clear();
-                Console.Write("╔══════════════════════════════════════════════╗\n" +
-                              "║ Ticket System                                ║\n" +
-                              "╠══════════════════════════════════════════════╣\n" +
-                              "║ 1: Internal Ticket Generate                  ║\n" +
-                              "║ 2: Password Generator                        ║\n" +
-                              "║ Esc: Exit                                    ║\n" +
-                              "╚══════════════════════════════════════════════╝\n" +
-                              "Option: ");
+                Menu.ShowMain();
                 Option = Console.ReadKey(false);
                 switch (Option.KeyChar.ToString())
                 {
@@ -28,8 +20,8 @@ namespace Project
                         Console.Clear();
                         if (InternalGenerate == false)
                         {
-                            TicketList.Add(new InternalTicket("Inna", "INNAM", "inna@whitecliffe.co.nz", "My monitor stopped working"));
-                            TicketList.Add(new InternalTicket("Maria", "MARIAH", "maria@whitecliffe.co.nz", "Request for a video camera to conduct webinar"));
+                            Generate.InternalTicket();
+                            Console.WriteLine("Sussess: Sample internal tickets generated for this session");
                             InternalGenerate = true;
                         }
                         else
@@ -47,7 +39,7 @@ namespace Project
                         break;
                 };
             } while (Option.Key != ConsoleKey.Escape);
-            Console.WriteLine("Press any key to continue . . .");
+            Console.WriteLine("\nPress any key to continue . . .");
             Console.ReadKey();
         }
         static void PwdGen()
