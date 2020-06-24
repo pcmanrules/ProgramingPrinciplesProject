@@ -44,7 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Generate.cs" />
+    <Compile Include="InternalTicket.cs" />
     <Compile Include="Menu.cs" />
+    <Compile Include="Output.cs" />
     <Compile Include="Ticket.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

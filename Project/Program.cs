@@ -47,10 +47,6 @@ namespace Project
                                 OptionSecret = Console.ReadKey(false);
                                 switch (OptionSecret.KeyChar.ToString())
                                 {
-                                    case "o":
-                                        {
-                                            break;
-                                        }
                                 };
                             } while (OptionSecret.Key != ConsoleKey.Escape);
                             break;
