@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace Project
 {
     class Program
     {
-        protected static List<Ticket> AllTickets = new List<Ticket>(); //Create list for all tickets
-        static protected void Main()
+        public static List<Ticket> AllTickets = new List<Ticket>(); //List for storage of all Tickets
+        public static bool InternalGenerate = false; //Generator checks
+        public static bool ExternalGenerate = false;
+        [STAThread]
+        static void Main()
         {
-            bool InternalGenerate = false; //Generator checks
-            bool ExternalGenerate = false;
+            
             ConsoleKeyInfo Option; //Object for menu key use
             do
             {
@@ -21,7 +24,7 @@ namespace Project
                         Console.Clear();
                         if (InternalGenerate == false) //Check if run before
                         {
-                            Generate.InternalTicket(AllTickets);
+                            Generate.InternalTicket(AllTickets); //Generate Internal Tickets
                             Console.WriteLine("Sussess: Sample internal tickets generated for this session");
                             InternalGenerate = true; //Prevent further running
                         }
@@ -36,7 +39,7 @@ namespace Project
                         Console.Clear();
                         if (ExternalGenerate == false) //Check if run before
                         {
-                            Generate.ExternalTickets(AllTickets);
+                            Generate.ExternalTicket(AllTickets); //Generate External Tickets
                             Console.WriteLine("Sussess: Sample External tickets generated for this session");
                             ExternalGenerate = true; //Prevent further running
                         }
@@ -49,15 +52,15 @@ namespace Project
                         break;
                     case "0":   //List all tickets
                         Console.Clear();
-                        if (AllTickets.Count == 0)
+                        if (AllTickets.Count == 0) //Check if empty
                             Console.WriteLine("Error: No tickets");
                         else
-                            AllTickets.ForEach(p => p.Output());
+                            AllTickets.ForEach(p => p.Output()); //Calls the output function for every object in list
                         Console.Write("Press any key to continue . . .");
                         Console.ReadKey();
                         break;
                 }
-            } while (Option.Key != ConsoleKey.Escape);
+            } while (Option.Key != ConsoleKey.Escape); //Program Exit
             Console.WriteLine("\nPress any key to continue . . .");
             Console.ReadKey();
         }

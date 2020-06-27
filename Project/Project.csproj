@@ -35,6 +35,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,7 +49,6 @@
     <Compile Include="Generate.cs" />
     <Compile Include="InternalTicket.cs" />
     <Compile Include="Menu.cs" />
-    <Compile Include="Output.cs" />
     <Compile Include="PasswordGenerator.cs" />
     <Compile Include="Ticket.cs" />
     <Compile Include="Program.cs" />
