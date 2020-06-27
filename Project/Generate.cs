@@ -12,5 +12,11 @@ namespace Project
             Ticket.Add(new InternalTicket("Stanley", "STANLEYK", "stanley@whitecliffe.co.nz", "My computer can't cut and paste, only copy", "Attended on site, broken X key, keyboard replaced", "Closed"));
             Ticket.Add(new InternalTicket("Peter", "PETERF", "peter@whitecliffe.co.nz", "Password Change"));
         }
+        public static void ExternalTickets(List<Ticket> Ticket)
+        {
+            Ticket.Add(new ExternalTicket("The CCTV Monitor in the lobby is blank"));
+            Ticket.Add(new ExternalTicket("Hannah", "hannybunny@gmail.com", "Email app on phone is no longer functioning off site"));
+            Ticket.Add(new ExternalTicket("Lindsey", "lindsey.powell@outlook.com", "My computer will only start boot to Startup Repair", "Technician attended and repaired OS, 1.5 Hr", "Closed"));
+        }
     }
 }

@@ -9,5 +9,6 @@
             return IDCounter;
         }
         public string ID, Creator, StaffID, Email, Description, Response, Status;
+        public abstract void Output();
     }
 }

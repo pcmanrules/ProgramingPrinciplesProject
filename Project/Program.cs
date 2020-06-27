@@ -9,6 +9,7 @@ namespace Project
         static protected void Main()
         {
             bool InternalGenerate = false; //Generator checks
+            bool ExternalGenerate = false;
             ConsoleKeyInfo Option; //Object for menu key use
             ConsoleKeyInfo OptionSecret;
             do
@@ -32,9 +33,24 @@ namespace Project
                         Console.Write("Press any key to continue . . .");
                         Console.ReadKey();
                         break;
+                    case "2": //External Ticket Generate 
+                        Console.Clear();
+                        if (ExternalGenerate == false) //Check if run before
+                        {
+                            Generate.ExternalTickets(AllTickets);
+                            Console.WriteLine("Sussess: Sample External tickets generated for this session");
+                            ExternalGenerate = true; //Prevent further running
+                        }
+                        else
+                        {
+                            Console.WriteLine("Error: External Ticket's have already been generated for this session");
+                        }
+                        Console.Write("Press any key to continue . . .");
+                        Console.ReadKey();
+                        break;
                     case "0":   //List all tickets
                         Console.Clear();
-                        AllTickets.ForEach(p => Output.StringOutput(p));
+                        AllTickets.ForEach(p => p.Output());
                         Console.Write("Press any key to continue . . .");
                         Console.ReadKey();
                         break;

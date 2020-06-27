@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExternalTicket.cs" />
     <Compile Include="Generate.cs" />
     <Compile Include="InternalTicket.cs" />
     <Compile Include="Menu.cs" />
