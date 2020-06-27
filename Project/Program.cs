@@ -6,10 +6,9 @@ namespace Project
 {
     class Program
     {
-        public static List<Ticket> AllTickets = new List<Ticket>(); //List for storage of all Tickets
-        public static bool InternalGenerate = false; //Generator checks
-        public static bool ExternalGenerate = false;
-        [STAThread]
+        private static List<Ticket> AllTickets = new List<Ticket>(); //List for storage of all Tickets
+        private static bool InternalGenerate = false; //Generator checks
+        private static bool ExternalGenerate = false;
         static void Main()
         {
             
