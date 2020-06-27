@@ -38,7 +38,7 @@ namespace Project
                         Console.Write("Press any key to continue . . .");
                         Console.ReadKey();
                         break;
-                    case "l":   //Secret debug menu
+                    case "s":   //Secret debug menu
                         {
                             do
                             {
@@ -47,6 +47,10 @@ namespace Project
                                 OptionSecret = Console.ReadKey(false);
                                 switch (OptionSecret.KeyChar.ToString())
                                 {
+                                    case "1":
+                                        {
+                                            break;
+                                        }
                                 };
                             } while (OptionSecret.Key != ConsoleKey.Escape);
                             break;
