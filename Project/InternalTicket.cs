@@ -11,7 +11,13 @@
             this.StaffID = StaffID;
             this.Email = Email;
             this.Description = Description;
-            this.Status = "Open";
+            if (Description.Contains("Password Change") == true)
+            {
+                this.Response = ("New password generated: " + PasswordGenerator.Invoke(this.ID, this.StaffID));
+                this.Status = "Closed";
+            }
+            else this.Status = "Open";
+
         }
         public InternalTicket(string StaffID, string Description)
         {
@@ -20,7 +26,12 @@
             this.ID = v.ToString();
             this.StaffID = StaffID;
             this.Description = Description;
-            this.Status = "Open";
+            if (Description.Contains("Password Change") == true)
+            {
+                this.Response = ("New password generated: " + PasswordGenerator.Invoke(this.ID, this.StaffID));
+                this.Status = "Closed";
+            }
+            else this.Status = "Open";
         }
         public InternalTicket(string Creator, string StaffID, string Email, string Description, string Response, string Status)
         {
