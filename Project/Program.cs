@@ -3,14 +3,14 @@ using System.Collections.Generic;
 
 namespace Project
 {
-    class Program
+    internal class Program
     {
         private static List<Ticket> AllTickets = new List<Ticket>(); //List for storage of all Tickets
         private static bool InternalGenerate = false; //Generator checks
         private static bool ExternalGenerate = false;
-        static void Main()
-        {
 
+        private static void Main()
+        {
             ConsoleKeyInfo Option; //Object for menu key use
             do
             {
@@ -18,7 +18,7 @@ namespace Project
                 Option = Console.ReadKey(false); //Wait and read user key press
                 switch (Option.KeyChar.ToString()) //Menu Options
                 {
-                    case "1": //Internal Ticket Generate 
+                    case "1": //Internal Ticket Generate
                         Console.Clear();
                         if (InternalGenerate == false) //Check if run before
                         {
@@ -33,7 +33,8 @@ namespace Project
                         Console.Write("Press any key to continue . . .");
                         Console.ReadKey();
                         break;
-                    case "2": //External Ticket Generate 
+
+                    case "2": //External Ticket Generate
                         Console.Clear();
                         if (ExternalGenerate == false) //Check if run before
                         {
@@ -48,6 +49,7 @@ namespace Project
                         Console.Write("Press any key to continue . . .");
                         Console.ReadKey();
                         break;
+
                     case "0":   //List all tickets
                         Console.Clear();
                         if (AllTickets.Count == 0) //Check if empty

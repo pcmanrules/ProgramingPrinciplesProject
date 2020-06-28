@@ -19,8 +19,8 @@ namespace Project
                 this.Status = "Closed";
             }
             else this.Status = "Open";
-
         }
+
         public InternalTicket(string StaffID, string Description)
         {
             int IDInt = CounterPlus();
@@ -37,6 +37,7 @@ namespace Project
             }
             else this.Status = "Open";
         }
+
         public InternalTicket(string Creator, string StaffID, string Email, string Description, string Response, string Status)
         {
             int IDInt = CounterPlus();
@@ -49,6 +50,7 @@ namespace Project
             this.Response = Response;
             this.Status = Status;
         }
+
         public override void Output()
         {
             Console.WriteLine(

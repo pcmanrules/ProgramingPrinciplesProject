@@ -13,6 +13,7 @@ namespace Project
             this.Description = Description;
             this.Status = "Open";
         }
+
         public ExternalTicket(string Description)
         {
             int IDInt = CounterPlus();
@@ -22,6 +23,7 @@ namespace Project
             this.Description = Description;
             this.Status = "Open";
         }
+
         public ExternalTicket(string Creator, string Email, string Description, string Response, string Status)
         {
             int IDInt = CounterPlus();
@@ -32,6 +34,7 @@ namespace Project
             this.Response = Response;
             this.Status = Status;
         }
+
         public override void Output()
         {
             Console.WriteLine(

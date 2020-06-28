@@ -2,7 +2,7 @@
 
 namespace Project
 {
-    class PasswordGenerator
+    internal class PasswordGenerator
     {
         public static string Invoke(string ID, string StaffID)
         {

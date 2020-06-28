@@ -2,7 +2,7 @@
 
 namespace Project
 {
-    class Menu
+    internal class Menu
     {
         public static void ShowMain()
         {

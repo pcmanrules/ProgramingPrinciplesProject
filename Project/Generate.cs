@@ -2,7 +2,7 @@
 
 namespace Project
 {
-    class Generate
+    internal class Generate
     {
         public static void InternalTicket(List<Ticket> Ticket)
         {
@@ -12,6 +12,7 @@ namespace Project
             Ticket.Add(new InternalTicket("Stanley", "STANLEYK", "stanley@whitecliffe.co.nz", "My computer can't cut and paste, only copy", "Attended on site, broken X key, keyboard replaced", "Closed"));
             Ticket.Add(new InternalTicket("Peter", "PETERF", "peter@whitecliffe.co.nz", "Password Change"));
         }
+
         public static void ExternalTicket(List<Ticket> Ticket)
         {
             Ticket.Add(new ExternalTicket("The CCTV Monitor in the lobby is blank"));
