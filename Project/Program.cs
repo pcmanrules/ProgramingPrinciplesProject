@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
 
 namespace Project
 {
@@ -11,7 +10,7 @@ namespace Project
         private static bool ExternalGenerate = false;
         static void Main()
         {
-            
+
             ConsoleKeyInfo Option; //Object for menu key use
             do
             {
