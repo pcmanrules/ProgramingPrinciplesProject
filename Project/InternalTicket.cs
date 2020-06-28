@@ -19,6 +19,7 @@ namespace Project
                 this.Status = "Closed";
             }
             else this.Status = "Open";
+            TicketStats.Input(this);
         }
 
         public InternalTicket(string StaffID, string Description)
@@ -36,6 +37,7 @@ namespace Project
                 this.Status = "Closed";
             }
             else this.Status = "Open";
+            TicketStats.Input(this);
         }
 
         public InternalTicket(string Creator, string StaffID, string Email, string Description, string Response, string Status)
@@ -49,6 +51,7 @@ namespace Project
             this.Description = Description;
             this.Response = Response;
             this.Status = Status;
+            TicketStats.Input(this);
         }
 
         public override void Output()

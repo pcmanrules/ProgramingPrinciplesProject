@@ -12,6 +12,7 @@ namespace Project
             this.Email = Email;
             this.Description = Description;
             this.Status = "Open";
+            TicketStats.Input(this);
         }
 
         public ExternalTicket(string Description)
@@ -22,6 +23,7 @@ namespace Project
             this.Email = "Not specified";
             this.Description = Description;
             this.Status = "Open";
+            TicketStats.Input(this);
         }
 
         public ExternalTicket(string Creator, string Email, string Description, string Response, string Status)
@@ -33,6 +35,7 @@ namespace Project
             this.Description = Description;
             this.Response = Response;
             this.Status = Status;
+            TicketStats.Input(this);
         }
 
         public override void Output()

@@ -12,8 +12,8 @@ namespace Project
                           "╠══════════════════════════════════════════════╣\n" +
                           "║ 1: Internal Ticket Generate                  ║\n" +
                           "║ 2: External Ticket Generate                  ║\n" +
-                          "║                                              ║\n" +
-                          "║ 0: List all tickets                          ║\n" +
+                          "║ 3: List all Tickets                          ║\n" +
+                          "║ 4: Display Ticket Statistics                 ║\n" +
                           "║                                              ║\n" +
                           "║ Esc: Exit                                    ║\n" +
                           "╚══════════════════════════════════════════════╝\n" +
