@@ -5,7 +5,7 @@ namespace Project
 {
     internal class Program
     {
-        public static List<Ticket> AllTickets = new List<Ticket>(); //List for storage of all Tickets
+        private static List<Ticket> AllTickets = new List<Ticket>(); //List for storage of all Tickets
         private static bool InternalGenerate = false; //Generator checks
         private static bool ExternalGenerate = false;
 
@@ -50,9 +50,9 @@ namespace Project
                         Console.ReadKey();
                         break;
 
-                    case "4":
+                    case "4": //Display all tickets
                         Console.Clear();
-                        int[] stats = TicketStats.Output();
+                        int[] stats = TicketStats.Output(); //Retreve statistics as an int array and output
                         Console.WriteLine("Tickets Created: " + stats[0] + "\n" +
                             "Tickets Resolved: " + stats[2] + "\n" +
                             "Tickets To Solve: " + stats[1] + "\n"

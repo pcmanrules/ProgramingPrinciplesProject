@@ -13,7 +13,8 @@
         protected string ID, Creator, StaffID, Email, Description, Response, Status;
 
         public abstract void Output();
-        public  string TicketStatus()
+
+        public string TicketStatus()
         {
             string Status = this.Status;
             return Status;
