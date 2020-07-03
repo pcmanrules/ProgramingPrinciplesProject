@@ -5,63 +5,65 @@ namespace Project
 {
     internal class Program
     {
-        private static List<Ticket> AllTickets = new List<Ticket>(); //List for storage of all Tickets
-        private static bool InternalGenerate = false; //Generator checks
-        private static bool ExternalGenerate = false;
+        private static readonly List<Ticket> AllTickets = new List<Ticket>(); //List for storage of all Tickets
+        private static bool _internalGenerate; //Generator checks
+        private static bool _externalGenerate;
 
         private static void Main()
         {
-            ConsoleKeyInfo Option; //Object for menu key use
+            ConsoleKeyInfo option; //Object for menu key use
             do
             {
                 Menu.ShowMain(); //Write Menu
-                Option = Console.ReadKey(false); //Wait and read user key press
-                switch (Option.KeyChar.ToString()) //Menu Options
+                option = Console.ReadKey(false); //Wait and read user key press
+                switch (option.KeyChar.ToString()) //Menu Options
                 {
                     case "1": //Internal Ticket Generate
                         Console.Clear();
-                        if (InternalGenerate == false) //Check if run before
+                        if (_internalGenerate == false) //Check if run before
                         {
                             Generate.InternalTicket(AllTickets); //Generate Internal Tickets
-                            Console.WriteLine("Sussess: Sample internal tickets generated for this session");
-                            InternalGenerate = true; //Prevent further running
+                            Console.WriteLine("Success: Sample internal tickets generated for this session");
+                            _internalGenerate = true; //Prevent further running
                         }
                         else
                         {
                             Console.WriteLine("Error: Internal Ticket's have already been generated for this session");
                         }
+
                         Console.Write("Press any key to continue . . .");
                         Console.ReadKey();
                         break;
 
                     case "2": //External Ticket Generate
                         Console.Clear();
-                        if (ExternalGenerate == false) //Check if run before
+                        if (_externalGenerate == false) //Check if run before
                         {
                             Generate.ExternalTicket(AllTickets); //Generate External Tickets
-                            Console.WriteLine("Sussess: Sample External tickets generated for this session");
-                            ExternalGenerate = true; //Prevent further running
+                            Console.WriteLine("Success: Sample External tickets generated for this session");
+                            _externalGenerate = true; //Prevent further running
                         }
                         else
                         {
                             Console.WriteLine("Error: External Ticket's have already been generated for this session");
                         }
+
                         Console.Write("Press any key to continue . . .");
                         Console.ReadKey();
                         break;
 
                     case "4": //Display all tickets
                         Console.Clear();
-                        int[] stats = TicketStats.Output(); //Retreve statistics as an int array and output
+                        var stats = TicketStats.Output(); //Retrieve statistics as an int array and output
                         Console.WriteLine("Tickets Created: " + stats[0] + "\n" +
-                            "Tickets Resolved: " + stats[2] + "\n" +
-                            "Tickets To Solve: " + stats[1] + "\n"
-                            );
+                                          "Tickets Resolved: " + stats[2] + "\n" +
+                                          "Tickets To Solve: " + stats[1] + "\n"
+                        );
                         Console.Write("Press any key to continue . . .");
                         Console.ReadKey();
                         break;
 
-                    case "3":   //List all tickets
+                    case "3": //List all tickets
                         Console.Clear();
                         if (AllTickets.Count == 0) //Check if empty
                             Console.WriteLine("Error: No tickets");
@@ -71,7 +73,8 @@ namespace Project
                         Console.ReadKey();
                         break;
                 }
-            } while (Option.Key != ConsoleKey.Escape); //Program Exit
+            } while (option.Key != ConsoleKey.Escape); //Program Exit
+
             Console.WriteLine("\nPress any key to continue . . .");
             Console.ReadKey();
         }

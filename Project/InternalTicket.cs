@@ -4,67 +4,76 @@ namespace Project
 {
     public class InternalTicket : Ticket
     {
-        public InternalTicket(string Creator, string StaffID, string Email, string Description)
+        public InternalTicket(string creator, string staffid, string email, string description)
         {
-            int IDInt = CounterPlus();
-            int v = IDInt + 2000;
-            this.ID = v.ToString();
-            this.Creator = Creator;
-            this.StaffID = StaffID;
-            this.Email = Email;
-            this.Description = Description;
-            if (Description.Contains("Password Change") == true)
+            var idint = CounterPlus();
+            var v = idint + 2000;
+            Id = v.ToString();
+            Creator = creator;
+            StaffId = staffid;
+            Email = email;
+            Description = description;
+            if (Description.Contains("Password Change"))
             {
-                this.Response = ("New password generated: " + PasswordGenerator.Invoke(this.ID, this.StaffID));
-                this.Status = "Closed";
+                Response = "New password generated: " + PasswordGenerator.Invoke(Id, StaffId);
+                Status = "Closed";
             }
-            else this.Status = "Open";
+            else
+            {
+                Status = "Open";
+            }
+
             TicketStats.Input(this);
         }
 
-        public InternalTicket(string StaffID, string Description)
+        public InternalTicket(string staffid, string description)
         {
-            int IDInt = CounterPlus();
-            int v = IDInt + 2000;
-            this.ID = v.ToString();
-            this.Creator = "Not Specified";
-            this.StaffID = StaffID;
-            this.Email = "Not Specified";
-            this.Description = Description;
-            if (Description.Contains("Password Change") == true)
+            var idint = CounterPlus();
+            var v = idint + 2000;
+            Id = v.ToString();
+            Creator = "Not Specified";
+            StaffId = staffid;
+            Email = "Not Specified";
+            Description = description;
+            if (Description.Contains("Password Change"))
             {
-                this.Response = ("New password generated: " + PasswordGenerator.Invoke(this.ID, this.StaffID));
-                this.Status = "Closed";
+                Response = "New password generated: " + PasswordGenerator.Invoke(Id, StaffId);
+                Status = "Closed";
             }
-            else this.Status = "Open";
+            else
+            {
+                Status = "Open";
+            }
+
             TicketStats.Input(this);
         }
 
-        public InternalTicket(string Creator, string StaffID, string Email, string Description, string Response, string Status)
+        public InternalTicket(string creator, string staffid, string email, string description, string response,
+            string status)
         {
-            int IDInt = CounterPlus();
-            int v = IDInt + 2000;
-            this.ID = v.ToString();
-            this.Creator = Creator;
-            this.StaffID = StaffID;
-            this.Email = Email;
-            this.Description = Description;
-            this.Response = Response;
-            this.Status = Status;
+            var idint = CounterPlus();
+            var v = idint + 2000;
+            Id = v.ToString();
+            Creator = creator;
+            StaffId = staffid;
+            Email = email;
+            Description = description;
+            Response = response;
+            Status = status;
             TicketStats.Input(this);
         }
 
         public override void Output()
         {
             Console.WriteLine(
-                "Ticket Number: " + this.ID + "\n" +
-                "Ticket Creator: " + this.Creator + "\n" +
-                "Staff ID: " + this.StaffID + "\n" +
-                "Email Address: " + this.Email + "\n" +
-                "Description: " + this.Description + "\n" +
-                "Response: " + (this.Response ?? "Not Yet Provided") + "\n" +
-                "Ticket Status: " + this.Status + "\n"
-                );
+                "Ticket Number: " + Id + "\n" +
+                "Ticket Creator: " + Creator + "\n" +
+                "Staff Id: " + StaffId + "\n" +
+                "Email Address: " + Email + "\n" +
+                "Description: " + Description + "\n" +
+                "Response: " + (Response ?? "Not Yet Provided") + "\n" +
+                "Ticket Status: " + Status + "\n"
+            );
         }
     }
 }

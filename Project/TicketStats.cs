@@ -2,37 +2,31 @@
 {
     internal class TicketStats
     {
-        private static int Total;
-        private static int Open;
-        private static int Closed;
+        private static int _total;
+        private static int _open;
+        private static int _closed;
 
         static TicketStats()
         {
-            Total = 0;
-            Open = 0;
-            Closed = 0;
+            _total = 0;
+            _open = 0;
+            _closed = 0;
         }
 
         public static int[] Output()
         {
-            int[] stats = new int[3];
-            stats[0] = Total;
-            stats[1] = Open;
-            stats[2] = Closed;
+            var stats = new int[3];
+            stats[0] = _total;
+            stats[1] = _open;
+            stats[2] = _closed;
             return stats;
         }
 
-        public static void Input(Ticket Ticket)
+        public static void Input(Ticket ticket)
         {
-            Total++;
-            if (Ticket.TicketStatus() == "Open")
-            {
-                Open++;
-            }
-            if (Ticket.TicketStatus() == "Closed")
-            {
-                Closed++;
-            }
+            _total++;
+            if (ticket.TicketStatus() == "Open") _open++;
+            if (ticket.TicketStatus() == "Closed") _closed++;
         }
     }
 }

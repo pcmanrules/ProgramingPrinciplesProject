@@ -2,21 +2,20 @@
 {
     public abstract class Ticket
     {
-        private static int IDCounter = 0;
+        private static int _idCounter;
+
+        protected string Id, Creator, StaffId, Email, Description, Response, Status;
 
         protected int CounterPlus()
         {
-            IDCounter++;
-            return IDCounter;
+            _idCounter++;
+            return _idCounter;
         }
-
-        protected string ID, Creator, StaffID, Email, Description, Response, Status;
 
         public abstract void Output();
 
         public string TicketStatus()
         {
-            string Status = this.Status;
             return Status;
         }
     }

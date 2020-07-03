@@ -4,50 +4,50 @@ namespace Project
 {
     public class ExternalTicket : Ticket
     {
-        public ExternalTicket(string Creator, string Email, string Description)
+        public ExternalTicket(string creator, string email, string description)
         {
-            int IDInt = CounterPlus();
-            this.ID = IDInt.ToString();
-            this.Creator = Creator;
-            this.Email = Email;
-            this.Description = Description;
-            this.Status = "Open";
+            var idint = CounterPlus();
+            Id = idint.ToString();
+            Creator = creator;
+            Email = email;
+            Description = description;
+            Status = "Open";
             TicketStats.Input(this);
         }
 
-        public ExternalTicket(string Description)
+        public ExternalTicket(string description)
         {
-            int IDInt = CounterPlus();
-            this.ID = IDInt.ToString();
-            this.Creator = "Not specified";
-            this.Email = "Not specified";
-            this.Description = Description;
-            this.Status = "Open";
+            var idint = CounterPlus();
+            Id = idint.ToString();
+            Creator = "Not specified";
+            Email = "Not specified";
+            Description = description;
+            Status = "Open";
             TicketStats.Input(this);
         }
 
-        public ExternalTicket(string Creator, string Email, string Description, string Response, string Status)
+        public ExternalTicket(string creator, string email, string description, string response, string status)
         {
-            int IDInt = CounterPlus();
-            this.ID = IDInt.ToString();
-            this.Creator = Creator;
-            this.Email = Email;
-            this.Description = Description;
-            this.Response = Response;
-            this.Status = Status;
+            var idint = CounterPlus();
+            Id = idint.ToString();
+            Creator = creator;
+            Email = email;
+            Description = description;
+            Response = response;
+            Status = status;
             TicketStats.Input(this);
         }
 
         public override void Output()
         {
             Console.WriteLine(
-                "Ticket Number: " + this.ID + "\n" +
-                "Ticket Creator: " + this.Creator + "\n" +
-                "Email Address: " + this.Email + "\n" +
-                "Description: " + this.Description + "\n" +
-                "Response: " + (this.Response ?? "Not Yet Provided") + "\n" +
-                "Ticket Status: " + this.Status + "\n"
-                );
+                "Ticket Number: " + Id + "\n" +
+                "Ticket Creator: " + Creator + "\n" +
+                "Email Address: " + Email + "\n" +
+                "Description: " + Description + "\n" +
+                "Response: " + (Response ?? "Not Yet Provided") + "\n" +
+                "Ticket Status: " + Status + "\n"
+            );
         }
     }
 }
